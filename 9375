@@ -1,0 +1,19 @@
+from collections import defaultdict
+import sys
+
+input = sys.stdin.readline  # 빠른 입력
+
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    clothes = defaultdict(int)
+
+    for _ in range(n):
+        name, kind = input().split()
+        clothes[kind] += 1
+
+    result = 1
+    for count in clothes.values():
+        result *= (count + 1)  # 안 입는 경우 포함
+
+    print(result - 1)  # 모두 안 입는 경우 제외
