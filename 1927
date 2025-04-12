@@ -1,0 +1,16 @@
+import heapq
+import sys
+
+input = sys.stdin.readline  # 빠른 입력
+n = int(input())
+heap = []
+
+for _ in range(n):
+    x = int(input())
+    if x == 0:
+        if heap:
+            print(heapq.heappop(heap))  # 최소값 출력 후 제거
+        else:
+            print(0)  # 비어 있으면 0 출력
+    else:
+        heapq.heappush(heap, x)  # x 삽입
