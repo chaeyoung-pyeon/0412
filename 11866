@@ -1,0 +1,18 @@
+from collections import deque
+
+def josephus(n, k):
+    people = deque(range(1, n + 1))
+    result = []
+
+    while people:
+        # k - 1명 앞에 있는 사람을 뒤로 보내기
+        for _ in range(k - 1):
+            people.append(people.popleft())
+        # k번째 사람 제거
+        result.append(people.popleft())
+    
+    print("<" + ", ".join(map(str, result)) + ">")
+
+# 입력 받기
+n, k = map(int, input().split())
+josephus(n, k)
